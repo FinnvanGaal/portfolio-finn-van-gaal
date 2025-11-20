@@ -16,4 +16,4 @@ Hieronder vind je een overzicht van projecten waar ik aan heb gewerkt.
 - Opleiding: Web Development – REA College
 - Sterke punten: duidelijk, nauwkeurig, goed met computers
 
-📫 Contact: *[hier je e-mail]*
+📫 Contact: finnvangaal@gmail.com
