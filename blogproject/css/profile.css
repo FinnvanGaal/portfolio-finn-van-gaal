@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .container.postpage {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 100px calc(100vh - 100px - 120px) 120px;
@@ -346,3 +347,353 @@
         box-sizing: border-box;
     }
 }
+=======
+.container.postpage {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100px calc(100vh - 100px - 120px) 120px;
+
+    grid-template-areas:
+        "header header header header"
+        "sidebar content content content"
+        "footer footer footer footer";
+}
+
+.content {
+    grid-area: content;
+    padding: 25px;
+    font-size: clamp(0.9rem, 1.4vw, 1rem);
+    overflow-x: hidden;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.content--slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.content--form {
+    display: block;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.posts-slider {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto; /* horizontal scroll inside */
+    overflow-y: hidden;
+    gap: 1rem;
+    padding: 0.5rem;
+    scroll-snap-type: x mandatory; /* snap horizontally */
+    scroll-padding-left: 0.75rem; /* keep first card aligned */
+    -webkit-overflow-scrolling: touch; /* smooth on iOS */
+    max-width: 100%; /* don’t spill outside page */
+    box-sizing: border-box;
+}
+
+.post-card {
+    flex: 0 0 240px; /* fixed width card, no shrinking */
+    background: #fff;
+    border-radius: 8px;
+    padding: 0.5rem;
+    scroll-snap-align: start;
+}
+
+.post-card:hover {
+    scale: 1.02;
+    cursor: pointer;
+}
+
+.post-card:focus-visible {
+    outline: 2px solid #588157;
+    outline-offset: 3px;
+}
+
+.post-img {
+    max-width: 306px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.no-posts {
+    text-align: center;
+    padding: 2em;
+    background: #f6f5f3;
+    border: 2px dashed #a3b18a;
+    border-radius: 12px;
+    color: #344e41;
+}
+
+.no-posts i {
+    display: block;
+    margin-bottom: 1em;
+    color: #a3b18a;
+}
+
+.no-posts .btn {
+    display: inline-block;
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    background: #a3b18a;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.no-posts .btn:hover {
+    background: #588157;
+}
+
+/* Create Post Form mooier maken */
+.create-post-form {
+    max-width: 600px;
+    width: 40vw; /* Let it shrink with parent */
+    padding: 2em;
+    background: #f6f5f3;
+    border-radius: 16px;
+    border: 2px dashed #a3b18a;
+    box-shadow: 0 4px 20px rgba(52, 78, 65, 0.1);
+    box-sizing: border-box;
+    aspect-ratio: 4 / 3; /* Keeps the form's aspect ratio */
+}
+
+.create-post-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+    color: #344e41;
+}
+
+.create-post-form input,
+.create-post-form textarea {
+    width: 100%;
+    padding: 0.7em;
+    border: 1.5px solid #a3b18a;
+    background: #fff;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    margin-bottom: 1.2em;
+    transition: border-color 0.2s;
+}
+
+.create-post-form input:focus,
+.create-post-form textarea:focus {
+    outline: none;
+    border-color: #588157;
+}
+
+.create-post-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.create-post-form button {
+    width: 100%;
+    padding: 0.9em;
+    font-size: 1rem;
+    background: #a3b18a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.create-post-form button:hover {
+    background: #588157;
+}
+
+.create-post-form .error {
+    color: #c1121f;
+    margin-top: 0.5em;
+    font-weight: 500;
+    text-align: center;
+}
+.sidebar {
+    background-color: #a3b18a;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    gap: 4rem;
+    border-right: 3px solid #f6f5f3;
+    box-sizing: border-box;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.sidebar-header i {
+    font-size: 1.8rem;
+    color: #588157;
+}
+
+.sidebar-user .username {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.sidebar-user .role {
+    font-size: 1rem;
+    color: #f0efeb;
+}
+
+.nav-links,
+.nav-logout {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nav-links li a,
+.nav-logout li a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: transparent;
+    transition: background 0.2s;
+    box-sizing: border-box;
+}
+
+.nav-links li a:hover,
+.nav-logout li a:hover {
+    background-color: #588157;
+}
+
+.nav-links li a.active {
+    background-color: #588157;
+    font-weight: bold;
+}
+
+.nav-logout {
+    margin-top: auto;
+    border-top: 1px solid #ffffff55;
+    padding-top: 1rem;
+}
+
+.post-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.post-actions a {
+    display: inline-block;
+    padding: 0.4em 0.8em;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn-edit {
+    background-color: #a3b18a;
+}
+.btn-edit:hover {
+    background-color: #588157;
+}
+
+/* Delete button */
+.btn-delete {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background-color: #d9534f; /* rood */
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-decoration: none; /* als het een <a> zou zijn */
+}
+
+.btn-delete i {
+    font-size: 14px;
+}
+
+/* Hover & active states */
+.btn-delete:hover {
+    background-color: #c9302c;
+}
+
+.btn-delete:active {
+    transform: scale(0.96);
+}
+
+/* Zorg dat forms naast edit-knop netjes blijven staan */
+.post-actions form {
+    display: inline-block;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    /* 1) Container: simpele, verticale stack zonder vaste hoogtes */
+    .container.postpage {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto; /* header, sidebar, content, footer */
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "content"
+            "footer";
+        height: auto; /* niet klem in 100vh */
+        min-height: 0; /* laat kinderen bepalen */
+    }
+
+    /* 2) Content: echt centreren, geen scroll/overflow-gedrag */
+    .container.postpage .content {
+        grid-area: content;
+        display: grid; /* eenvoudig centreren */
+        place-items: center; /* horizontaal + verticaal */
+        padding: 1.5rem;
+        box-sizing: border-box;
+        min-width: 0; /* voorkomt “links gecropped” effect */
+        overflow: visible !important; /* overschrijft eerdere overflow-y:auto */
+        height: auto !important; /* geen geforceerde hoogte */
+    }
+
+    /* 3) Form-wrapper: netjes midden, met vaste maximale breedte */
+    .container.postpage .content--form {
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+        display: block; /* geen extra flex nodig */
+    }
+
+    /* 4) Form: blijft compact en schaalt niet buiten het midden */
+    .create-post-form {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+}
+>>>>>>> 38ab6e3b03704417fcdbae3e967854145f00a340
