@@ -1,0 +1,86 @@
+/* ABOUT PAGINA — zelfde stijl als post/create layout */
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 1fr 120px;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    min-height: 100vh;
+}
+
+.content--form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: #fff8f3;
+}
+
+.page-info {
+    background: #f6f5f3;
+    border-left: 4px solid #588157;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(52, 78, 65, 0.1);
+    padding: 2rem 2.5rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    color: #344e41;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.page-info h1 {
+    font-size: 1.8rem;
+    color: #344e41;
+    margin-bottom: 1rem;
+}
+
+.page-info p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.page-info ul {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.page-info li {
+    margin-bottom: 0.4rem;
+}
+
+.page-info a {
+    color: #588157;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.page-info a:hover {
+    text-decoration: underline;
+}
+
+/* 📱 Responsive */
+@media (max-width: 900px) {
+    .container {
+        grid-template-rows: auto 1fr 120px;
+        /* header-rij wordt zo net zo hoog als de echte header */
+    }
+    .content--form {
+        padding: 20px;
+    }
+
+    .page-info {
+        padding: 1.5rem;
+        margin: 20px auto;
+        width: 90%;
+    }
+
+    .page-info h1 {
+        font-size: 1.5rem;
+    }
+}
