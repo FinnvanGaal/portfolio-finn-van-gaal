@@ -1,0 +1,197 @@
+.container.indexpage {
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr minmax(0, 360px);
+    grid-template-rows: 100px 1fr 120px;
+    grid-template-areas:
+        "header header header header"
+        "main main main aside"
+        "footer footer footer footer";
+}
+
+.content-container {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "post-big post-small-top"
+        "post-big post-small-bottom";
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 20px;
+    box-sizing: border-box;
+    color: white;
+    text-shadow: 0 2px 8px rgba(44, 62, 80, 0.35);
+    border-radius: 18px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.comments {
+    grid-area: comments;
+    background-color: #fff8f3;
+}
+
+.post-big {
+    grid-area: post-big;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: flex-end;
+    background-size: cover;
+    font-size: clamp(1.2rem, 6vw, 2rem);
+    min-width: 200px;
+}
+
+.post-small-top {
+    grid-area: post-small-top;
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: flex-end;
+    background-size: cover;
+}
+
+.post-small-bottom {
+    grid-area: post-small-bottom;
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: flex-end;
+    background-size: cover;
+}
+
+.post-big h2 {
+    font-size: clamp(1rem, 2.5vw, 3rem);
+    line-height: 1.15;
+    margin: 0;
+}
+
+.post-small-top h2,
+.post-small-bottom h2 {
+    font-size: clamp(0.9rem, 2vw, 1.6rem);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.post-big,
+.post-small-top,
+.post-small-bottom {
+    border-radius: 4px;
+    box-shadow: 0 4px 16px rgba(52, 78, 65, 0.1);
+    filter: grayscale(10%);
+    transition: scale 0.2s ease-in;
+}
+
+.post-big:hover,
+.post-small-top:hover,
+.post-small-bottom:hover {
+    cursor: pointer;
+    scale: 1.02;
+    filter: blur(0);
+}
+
+.date {
+    font-size: small;
+    color: #fafafa;
+}
+
+/* 🌿 ASIDE (Recente Posts) */
+aside {
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    background: linear-gradient(180deg, #e8ede5 0%, #dad7cd 100%);
+    border-left: 5px solid #588157;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    padding: 1.8rem 1.5rem;
+    box-shadow: 0 4px 16px rgba(88, 129, 87, 0.15);
+    color: #344e41;
+    font-family: "Segoe UI", Arial, sans-serif;
+    min-width: 280px;
+
+    /* 🧩 Scrollbar fix */
+    overflow-y: auto; /* alleen scrollen binnen aside als nodig */
+    overflow-x: hidden;
+    max-height: calc(100vh - 85px - 120px); /* past bij jouw header/footerhoogte */
+}
+
+/* 🌱 Titel */
+aside h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #3a5a40;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #a3b18a;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* 📄 Lijst */
+aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    overflow: hidden;
+}
+
+/* 📦 Lijstitems */
+aside li {
+    background-color: #f6f5f3;
+    border-radius: 8px;
+    transition: background-color 0.25s ease, transform 0.1s ease, box-shadow 0.25s ease;
+    box-shadow: 0 2px 6px rgba(52, 78, 65, 0.05);
+    will-change: transform;
+}
+
+/* 🔗 Links binnen li */
+aside li a {
+    display: block;
+    padding: 0.7rem 0.9rem;
+    text-decoration: none;
+    color: #344e41;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+/* 🪶 Hover-effect */
+aside li:hover {
+    transform: translateX(2px); /* subtiele beweging zonder scrollproblemen */
+    background-color: #edf0ea;
+    box-shadow: 0 2px 8px rgba(52, 78, 65, 0.08);
+}
+
+aside li a:hover {
+    border-left: 3px solid #588157;
+    color: #588157;
+}
+
+@media (max-width: 900px) {
+    .container.indexpage {
+        height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto auto; /* 🔥 header mag nu groeien */
+        grid-template-areas:
+            "header"
+            "main"
+            "aside"
+            "footer";
+    }
+}
