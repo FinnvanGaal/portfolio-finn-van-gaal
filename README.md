@@ -1,6 +1,6 @@
 # Portfolio – Finn van Gaal
 
-Hieronder vind je een overzicht van projecten waar ik aan heb gewerkt.
+Hierboven vind je een overzicht van projecten waar ik aan heb gewerkt.
 
 ---
 
